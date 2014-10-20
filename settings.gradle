@@ -1,0 +1,4 @@
+include ':app'
+include ':aimageview'
+
+project(':aimageview').projectDir = new File('AImageView/library')
