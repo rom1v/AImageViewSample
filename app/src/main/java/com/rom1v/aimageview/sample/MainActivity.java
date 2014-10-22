@@ -38,6 +38,8 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
     private RadioGroup fitRadioGroup;
     private RadioButton fitInsideRadioButton;
     private RadioButton fitOutsideRadioButton;
+    private RadioButton fitHorizontalRadioButton;
+    private RadioButton fitVerticalRadioButton;
     private SeekBar xWeightSeekBar;
     private SeekBar yWeightSeekBar;
 
@@ -55,6 +57,8 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
         fitRadioGroup = (RadioGroup) findViewById(R.id.fit_radio_group);
         fitInsideRadioButton = (RadioButton) findViewById(R.id.fit_inside_radio_button);
         fitOutsideRadioButton = (RadioButton) findViewById(R.id.fit_outside_radio_button);
+        fitHorizontalRadioButton = (RadioButton) findViewById(R.id.fit_horizontal_radio_button);
+        fitVerticalRadioButton = (RadioButton) findViewById(R.id.fit_vertical_radio_button);
 
         xWeightSeekBar.setProgress((int) (aImageView.getXWeight() * 100));
         yWeightSeekBar.setProgress((int) (aImageView.getYWeight() * 100));
@@ -66,6 +70,12 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
                 break;
             case OUTSIDE:
                 fitOutsideRadioButton.setChecked(true);
+                break;
+            case HORIZONTAL:
+                fitHorizontalRadioButton.setChecked(true);
+                break;
+            case VERTICAL:
+                fitVerticalRadioButton.setChecked(true);
                 break;
         }
         refreshFitEnabled();
@@ -82,6 +92,8 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
         boolean scalable = aImageView.getScaleFlags() != 0;
         fitInsideRadioButton.setEnabled(scalable);
         fitOutsideRadioButton.setEnabled(scalable);
+        fitHorizontalRadioButton.setEnabled(scalable);
+        fitVerticalRadioButton.setEnabled(scalable);
     }
 
     @Override
@@ -120,6 +132,12 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
                 break;
             case R.id.fit_outside_radio_button:
                 fit = AImageView.Fit.OUTSIDE;
+                break;
+            case R.id.fit_horizontal_radio_button:
+                fit = AImageView.Fit.HORIZONTAL;
+                break;
+            case R.id.fit_vertical_radio_button:
+                fit = AImageView.Fit.VERTICAL;
                 break;
             default:
                 throw new IllegalArgumentException();

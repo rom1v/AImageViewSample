@@ -59,7 +59,7 @@
 
             <RadioGroup
                 android:id="@id/fit_radio_group"
-                android:orientation="horizontal">
+                style="@style/radio_layout">
 
                 <RadioButton
                     android:id="@+id/fit_inside_radio_button"
@@ -72,6 +72,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="outside"/>
+
+                <RadioButton
+                    android:id="@+id/fit_horizontal_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="horizontal"/>
+
+                <RadioButton
+                    android:id="@+id/fit_vertical_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="vertical"/>
 
             </RadioGroup>
         </TableRow>
